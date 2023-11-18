@@ -15,23 +15,22 @@ for image in os.listdir('Faces'):
     encoding.append(face_encoding)
     names.append(image.split(".")[0])
 while True:
-    try:
         ret, frame = cap.read()
         frame = cv2.flip(frame, 1)
         cv2.imshow("Camera", frame)
-
-        frame_image = face_recognition.face_encodings(frame)[0]
-        result = face_recognition.compare_faces(encoding, frame_image)
-
-        for i in result:
-            if i:
-                break_sys = 1
-
-
-        if break_sys == 1:
-           break
-
-        elif cv2.waitKey(1) & 0xFF == ord('x'):
+        if cv2.waitKey(1) & 0xFF == ord('x'):
             break
-    except:
-        pass
+
+        try:
+            frame_image = face_recognition.face_encodings(frame)[0]
+            result = face_recognition.compare_faces(encoding, frame_image)
+
+            for i in result:
+                if i:
+                    break_sys = 0
+                    print("Hello")
+
+            if break_sys == 1:
+                   break
+        except:
+            pass
