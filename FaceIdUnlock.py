@@ -14,6 +14,8 @@ for image in os.listdir('Faces'):
 
     encoding.append(face_encoding)
     names.append(image.split(".")[0])
+
+
 while True:
         ret, frame = cap.read()
         frame = cv2.flip(frame, 1)
