@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 
 camera = cv2.VideoCapture(0)
-a = 0
+
 encoding = []
 names = []
 
@@ -40,7 +40,7 @@ def results():
     return result
 
 @app.route('/')
-def loginpage():  # put application's code here
+def loginpage():
     return render_template("loginPage.html")
 
 
@@ -48,7 +48,7 @@ def loginpage():  # put application's code here
 def video_feed():
     return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-@app.route('/IdUnlock', methods = ['POST', 'GET'])
+@app.route('/IdUnlock', methods = ['POST'])
 def IdUnlock():
     return render_template('IdUnlockPage.html')
 
