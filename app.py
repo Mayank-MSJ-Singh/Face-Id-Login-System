@@ -6,12 +6,6 @@ import FaceUnlock
 
 app = Flask(__name__)
 
-app.config['SERVER_NAME'] = 'localhost:5000'  # Replace with your actual server name and port
-app.config['APPLICATION_ROOT'] = '/'
-app.config['PREFERRED_URL_SCHEME'] = 'http'
-
-app.secret_key = 'super_secret_key'
-
 
 
 camera = cv2.VideoCapture(0)
